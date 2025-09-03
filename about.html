@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us--Dream River Hotel</title>
+<meta name="description" content="Dream River is a hotel situated in the heart of Pahalgam. Our property offers guests a peaceful retreat where nature and comfort come together seamlessly.">
+<meta name="keywords" content="Dream River, hotel, Pahalgam, comfort, nature, retreat, accommodation, booking">
+<meta name="author" content="Dream River Team">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.dreamriver.in/">
+<link rel="icon" href="/LogoDR.png">
+<link rel="apple-touch-icon" href="/LogoDR.png">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dream River Hotel - Book Your Stay Online">
+<meta property="og:description" content="Dream River is a hotel situated in the heart of Pahalgam, offering a peaceful retreat where nature and comfort come together.">
+<meta property="og:url" content="https://www.dreamriver.in/">
+<meta property="og:image" content="https://www.dreamriver.in/LogoDR.png">
+<meta property="og:site_name" content="Dream River Hotel">
+<meta property="og:locale" content="en_IN">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dream River Hotel - Book Your Stay Online">
+<meta name="twitter:description" content="Dream River is a hotel situated in the heart of Pahalgam, offering a peaceful retreat where nature and comfort come together.">
+<meta name="twitter:image" content="https://www.dreamriver.in/LogoDR.png">
+<meta name="twitter:site" content="@DreamRiverHotel">
+<meta name="twitter:creator" content="@DreamRiverHotel">
+
+<!-- Additional SEO meta tags -->
+<meta http-equiv="content-language" content="en">
+
+<!-- Hotel Structured Data -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="hero.css">
+  <link rel="stylesheet" href="nav.css">
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #deebf0;
+      color: #333;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    h1, h2, h3 {
+      margin-bottom: 15px;
+      color: #c55f0c;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 0;
+    }
+
+
+    /*NAV START*/
+/* Navbar */
+  .navbar {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#deebf0;
+    padding:0 20px;
+    height:60px;
+    /*border-bottom:1px solid #ddd;*/
+    position:relative;
+    z-index:10;
+  } 
+
+.logo img { height:50px; }
+
+@media (max-width:768px) {
+  .logo img { margin-left: -50px; }
+}
+@media (min-width:768px) {
+  .logo img { padding-left: 40px;}
+}
+
+
+  .menu { display:flex; gap:20px; list-style:none; align-items:center;  }
+  .menu li a { text-decoration:none; color:#c55f0c; font-weight:500; font-weight: bold; padding-right: 40px;}
+
+  .book-btn {
+    background-color:#c55f0c;
+    color:white;
+    padding:8px 16px;
+    border:none;
+    cursor:pointer;
+    font-weight:600;
+    border-radius:4px;
+    
+  }
+  @media (min-width:768px) {
+  .book-btn { margin-right: 40px;}
+}
+
+  .search-icon { font-size:18px; }
+  .hamburger { display:none; font-size:24px; color: #c55f0c}
+  .right-items { display:none; align-items:center; gap:10px; }
+
+  /* Mobile Menu sliding from top */
+  .mobile-menu {
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    position:absolute;
+    top:-100%; /* start above view */
+    left:0;
+    width:100%;
+    background:#deebf0;
+    padding:10px 0;
+    gap:15px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    transition: top 0.3s ease;
+    z-index:9;
+    padding-top: 30px;
+    padding-bottom: 40px;
+  }
+
+  .mobile-menu li a {
+    color:#c55f0c;
+    font-size:18px;
+    text-decoration:none;
+    padding-left:20px;
+    font-weight: bold;
+  }
+
+  .overlay {
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.3);
+    z-index:8;
+  }
+
+  @media (max-width:768px) {
+    .menu { display:none; }
+    .navbar { justify-content:space-between; padding:0 15px; }
+    .navbar-mobile { display:flex; width:100%; justify-content:space-between; align-items:center; }
+    .hamburger { display:block; }
+    .right-items { display:flex; }
+    .logo { position:absolute; left:50%; transform:translateX(-50%); }
+  }
+
+  /* Search bar below navbar */
+  .search-bar-container {
+    position:relative;
+    width:100%;
+    display:none;
+    background:#deebf0;
+    border-bottom:1px solid #ddd;
+    padding:10px 20px;
+    z-index:5;
+  }
+
+  .search-bar-container input {
+    width:100%;
+    padding:10px 70px 10px 10px; /* space for cross + search icon */
+    font-size:16px;
+    border:1px solid #ccc;
+    border-radius:4px;
+  }
+
+  .search-bar-container .search-btn {
+    position:absolute;
+    right:30px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    font-size:18px;
+    color:#c55f0c;
+  }
+
+  .search-bar-container .clear-btn {
+    position:absolute;
+    right:60px; /* left of search icon */
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    font-size:18px;
+    color:#999;
+    display:none;
+  }
+    /*NAV END*/
+
+    /* Hero Section */
+    .hero {
+      background: url('/Hotel.jpg') no-repeat center center/cover;
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      color:#c55f0c;
+      /*background: rgba(0,0,0,0.5);*/
+      padding: 9px;
+      border-radius: 10px;
+    }
+
+    /* Section Styles */
+    section {
+      margin-bottom: 60px;
+    }
+
+    /* Button Styles */
+    .btn {
+      display: inline-block;
+      background-color: #690213;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background-color: #8b0229;
+    }
+
+    /* Grid Cards for Attractions */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    .card h3 {
+      margin: 15px 20px 10px 20px;
+    }
+    .card p {
+      margin: 0 20px 20px 20px;
+    }
+
+    /* Scroll to Top Button */
+    #topBtn {
+      display: none;
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      z-index: 99;
+      border: none;
+      outline: none;
+      background-color: #690213;
+      color: white;
+      cursor: pointer;
+      padding: 12px 18px;
+      border-radius: 50%;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+    #topBtn:hover {
+      background-color: #8b0229;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!--nav start-->
+    
+<nav class="navbar">
+  <!-- Mobile Navbar -->
+  <div class="navbar-mobile">
+    <i class="fas fa-bars hamburger"></i>
+    <div class="logo">
+      <a href="/"><img src="logoDR.png" alt="Logo"></a>
+    </div>
+    <div class="right-items">
+      <!--<i class="fas fa-search search-icon"></i>-->
+      <a href="rooms.html"><button class="book-btn">Book Now</button></a>
+    </div>
+  </div>
+
+  <!-- Desktop / Tablet Menu -->
+  <ul class="menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="rooms.html">Rooms</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact-us.html">Contact Us</a></li>
+    <!--<li><i class="fas fa-search search-icon"></i></li>-->
+    <li><button class="book-btn">Book Now</button></li>
+  </ul>
+</nav>
+
+<!-- Search Bar -->
+<div class="search-bar-container">
+  <input type="text" id="searchInput" placeholder="Search...">
+  <i class="fas fa-times clear-btn"></i>
+  <i class="fas fa-search search-btn"></i>
+</div>
+
+<ul class="mobile-menu">
+  <li><a href="/">Home</a></li>
+  <li><a href="rooms.html">Rooms</a></li>
+  <li><a href="gallery.html">Gallery</a></li>
+  <li><a href="about.html">About Us</a></li>
+  <li><a href="contact-us.html">Contact us</a></li>
+</ul>
+
+<div class="overlay"></div>
+<!--nav end-->
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <!--<h1>About Dream River Hotel</h1>-->
+  </div>
+
+  <div class="container">
+    <!-- Our Story -->
+    <section>
+      <h2>Our Story</h2>
+<p>
+At Dream River Hotel, we believe that a stay should be more than just accommodation—it should be an experience that stays with you. Situated in the heart of Pahalgam, our property offers guests a peaceful retreat where nature and comfort come together seamlessly. From the gentle sound of the Lidder River flowing nearby to the refreshing mountain air that fills every corner, each moment here is designed to bring you closer to the natural beauty of Kashmir.  
+
+Our rooms and facilities are thoughtfully designed to provide both relaxation and convenience, making us an ideal choice for every kind of traveler. Families can enjoy spacious, comfortable stays with easy access to outdoor activities; couples will find a tranquil escape perfect for romance and privacy; and spiritual seekers can experience serenity in an environment that encourages reflection and peace of mind.  
+
+We are committed to creating a warm and welcoming atmosphere, supported by attentive service that ensures your comfort throughout your visit. Whether you are here for a short weekend getaway, a longer holiday, or simply to pause and recharge, Dream River Hotel strives to make your time in Pahalgam memorable, restful, and truly unforgettable.  
+</p>
+    </section>
+
+    <!-- Accommodation -->
+    <section>
+      <h2>Accommodation</h2>
+<p>
+Our rooms are thoughtfully designed to provide a cozy and comfortable stay, with serene views of the Lidder River right from your window. To make your experience truly worry-free, we offer a wide range of amenities including CCTV surveillance for security, power backup for uninterrupted comfort, and free Wi-Fi to keep you connected. Guests can also enjoy the convenience of free car parking, luggage assistance, and doctor-on-call services whenever needed. For recreation and relaxation, we provide access to a warm bonfire experience (paid), a welcoming dining area for meals, and in-room television for your entertainment. Every detail is taken care of to ensure your stay at Dream River Hotel is both relaxing and memorable.  
+</p>
+    </section>
+
+    <!-- Dining -->
+    <section>
+      <h2>Dining Experience</h2>
+<p>
+At Dream River Hotel, dining is more than just a meal — it’s an experience designed to bring people together. Our dedicated dining area provides a warm and welcoming space where guests can enjoy freshly prepared dishes made with care. Whether you prefer a hearty breakfast before exploring Pahalgam, a relaxed lunch with family, or a cozy dinner after a day outdoors, our dining experience is crafted to suit every occasion. Guests can also gather around the bonfire (paid) for a unique evening under the stars, making each meal not just satisfying but truly memorable.  
+</p>
+    </section>
+
+    <!-- Nearby Attractions -->
+    <section>
+      <h2>Nearby Attractions</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="Golf course Pahalgam.webp" alt="Golf course Pahalgam" style="width:100%; height:180px; object-fit:cover;">
+          <h3>Golf course Pahalgam</h3>
+          <p>Play a round of golf on lush greens surrounded by the serene beauty of Kashmir.</p>
+        </div>
+        <div class="card">
+          <img src="Aabshaar Park.jpeg" alt="Aabshaar Park" style="width:100%; height:180px; object-fit:cover;">
+          <h3>Aabshaar Park</h3>
+          <p>Enjoy breathtaking views and adventure trails just 10 minutes away.</p>
+        </div>
+        <div class="card">
+          <img src="Pahalgam market.jpeg" alt="Rafting Point" style="width:100%; height:180px; object-fit:cover;">
+          <h3>Pahalgam market</h3>
+          <p>Discover local crafts, vibrant shops, and authentic Kashmiri flavors.</p>
+        </div>
+        <div class="card">
+          <img src="Mamaleshwar temple.jpeg" alt="Betaab Valley" style="width:100%; height:180px; object-fit:cover;">
+          <h3>Mamaleshwar temple</h3>
+          <p>Lush green valley surrounded by snow-capped mountains, named after the Bollywood movie.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section style="text-align:center;">
+      <h2>Plan Your Stay</h2>
+      <p>Ready to experience the serene beauty of Dream River Hotel? Book your stay today and create unforgettable memories.</p>
+      <a href="rooms.html" class="btn">Book Now</a>
+    </section>
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <!--<button onclick="topFunction()" id="topBtn" title="Go to top" style="width:46px; height:46px; border-radius:50%; padding:0; display:flex; align-items:center; justify-content:center; font-size:24px;">↑</button>-->
+
+
+  <!--FOOTER-->
+<!--FOOTER-->
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <!-- Quick Links Section (now first) -->
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="rooms.html">Rooms</a></li>
+        <li><a href="about.html">About us</a></li>
+      </ul>
+    </div>
+
+    <!-- Rooms Section -->
+    <div class="footer-section">
+      <h3>Rooms</h3>
+      <ul>
+        <li><a href="rooms.html">Deluxe Haven Room</a></li>
+        <li><a href="rooms.html">Dream River Signature Suite</a></li>
+        <li><a href="rooms.html">Classic Comfort Room</a></li>
+        <li><a href="rooms.html">Starlight Suite Room</a></li>
+        <li><a href="rooms.html">Valley Serenity Room</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Us Section -->
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <p class="ehed">Email: <a href="mailto:info.dreamriver@gmail.com">info.dreamriver@gmail.com</a></p>
+      <p class="ehed">Mobile: <a href="tel:+919797003920">+91 9797003920</a></p>
+      <p class="ehed">Mobile: <a href="tel:+917051657977">+91 7051657977</a></p>
+    </div>
+
+    <!-- Services Section -->
+    <div class="footer-section">
+      <h3>Amenities</h3>
+      <ul class="amtti">
+        <li>CCTV Surveillance</li>
+        <li>Bonfire (Paid)</li>
+        <li>Dining Area</li>
+        <li>Doctor on Call</li>
+        <li>Free Car Parking</li>
+        <li>Luggage Assistance</li>
+        <li>Power Backup</li>
+        <li>Free Wi-Fi</li>
+        <li>Television</li>
+      </ul>
+    </div>
+
+    <!-- Explore Section -->
+    <div class="footer-section">
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!--COPYRIGHT SECTION-->
+
+<!-- Footer Bottom Section -->
+<div class="footer-bottom">
+  <p>
+    Copyright © 2025 Dream River. All Rights Reserved<br>
+    Designed & Developed by 
+    <a href="https://www.uperbit.com/" class="uperbit"><span class="uper">Uper</span><span class="bit">Bit</span></a>
+  </p>
+</div>
+
+<!--footer end-->
+
+  <script>
+    // Scroll to top button logic
+    const topBtn = document.getElementById("topBtn");
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+    }
+
+    function topFunction() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+  </script>
+  <script src="nav.js"></script>
+<script src="hero.js"></script>
+</body>
+</html>

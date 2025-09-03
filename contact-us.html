@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us-Dream River Hotel</title>
+<meta name="description" content="Dream River is a hotel situated in the heart of Pahalgam. Our property offers guests a peaceful retreat where nature and comfort come together seamlessly.">
+<meta name="keywords" content="Dream River, hotel, Pahalgam, comfort, nature, retreat, accommodation, booking">
+<meta name="author" content="Dream River Team">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.dreamriver.in/">
+<link rel="icon" href="/LogoDR.png">
+<link rel="apple-touch-icon" href="/LogoDR.png">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dream River Hotel - Book Your Stay Online">
+<meta property="og:description" content="Dream River is a hotel situated in the heart of Pahalgam, offering a peaceful retreat where nature and comfort come together.">
+<meta property="og:url" content="https://www.dreamriver.in/">
+<meta property="og:image" content="https://www.dreamriver.in/LogoDR.png">
+<meta property="og:site_name" content="Dream River Hotel">
+<meta property="og:locale" content="en_IN">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dream River Hotel - Book Your Stay Online">
+<meta name="twitter:description" content="Dream River is a hotel situated in the heart of Pahalgam, offering a peaceful retreat where nature and comfort come together.">
+<meta name="twitter:image" content="https://www.dreamriver.in/LogoDR.png">
+<meta name="twitter:site" content="@DreamRiverHotel">
+<meta name="twitter:creator" content="@DreamRiverHotel">
+
+<!-- Additional SEO meta tags -->
+<meta http-equiv="content-language" content="en">
+
+<!-- Hotel Structured Data -->
+
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="hero.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #deebf0;
+      color: #333;
+    }
+
+    .contact-container {
+      max-width: 1000px;
+      margin: 50px auto;
+      background: #deebf0;
+      padding: 50px 30px;
+      border-radius: 12px;
+      /*box-shadow: 0 8px 20px rgba(0,0,0,0.1);*/
+    }
+
+    .contact-container h1 {
+      text-align: center;
+      color: #c55f0c;
+      margin-bottom: 15px;
+    }
+
+    .contact-container p.intro {
+      text-align: center;
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .info-box {
+      background: #f1f1f1;
+      flex: 1 1 280px;
+      min-height: 180px;
+      border-radius: 12px;
+      text-align: center;
+      padding: 30px 0px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .info-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .info-box i {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .info-box.email i { color: #c55f0c; }
+    .info-box.phone i { color: #c55f0c; }
+    .info-box.whatsapp i { color: #25D366; }
+
+    .info-box h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+      color: #2c3e50;
+    }
+
+    .info-box p {
+      font-size: 16px;
+      color: #555;
+      margin: 5px 0;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #c55f0c;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 900px) {
+      .contact-info {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .info-box {
+        width: 100%;  /* Each card takes full width on mobile */
+        max-width: 400px; /* Optional: limits width so it doesn’t stretch too much */
+      }
+    }
+    a{
+        color:#c55f0c;
+    }
+
+/* Navbar */
+  .navbar {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#deebf0;
+    padding:0 20px;
+    height:60px;
+    /*border-bottom:1px solid #ddd;*/
+    position:relative;
+    z-index:10;
+  } 
+
+.logo img { height:50px; }
+
+@media (max-width:768px) {
+  .logo img { margin-left: -50px; }
+}
+@media (min-width:768px) {
+  .logo img { padding-left: 40px;}
+}
+
+
+  .menu { display:flex; gap:20px; list-style:none; align-items:center;  }
+  .menu li a { text-decoration:none; color:#c55f0c; font-weight:500; font-weight: bold; padding-right: 40px;}
+
+  .book-btn {
+    background-color:#c55f0c;
+    color:white;
+    padding:8px 16px;
+    border:none;
+    cursor:pointer;
+    font-weight:600;
+    border-radius:4px;
+    
+  }
+  @media (min-width:768px) {
+  .book-btn { margin-right: 40px;}
+}
+
+  .search-icon { font-size:18px; }
+  .hamburger { display:none; font-size:24px; color: #c55f0c}
+  .right-items { display:none; align-items:center; gap:10px; }
+
+  /* Mobile Menu sliding from top */
+  .mobile-menu {
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    position:absolute;
+    top:-100%; /* start above view */
+    left:0;
+    width:100%;
+    background:#deebf0;
+    padding:10px 0;
+    gap:15px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    transition: top 0.3s ease;
+    z-index:9;
+    padding-top: 30px;
+    padding-bottom: 40px;
+  }
+
+  .mobile-menu li a {
+    color:#c55f0c;
+    font-size:18px;
+    text-decoration:none;
+    padding-left:20px;
+    font-weight: bold;
+  }
+
+  .overlay {
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.3);
+    z-index:8;
+  }
+
+  @media (max-width:768px) {
+    .menu { display:none; }
+    .navbar { justify-content:space-between; padding:0 15px; }
+    .navbar-mobile { display:flex; width:100%; justify-content:space-between; align-items:center; }
+    .hamburger { display:block; }
+    .right-items { display:flex; }
+    .logo { position:absolute; left:50%; transform:translateX(-50%); }
+  }
+
+  /* Search bar below navbar */
+  .search-bar-container {
+    position:relative;
+    width:100%;
+    display:none;
+    background:#deebf0;
+    border-bottom:1px solid #ddd;
+    padding:10px 20px;
+    z-index:5;
+  }
+
+  .search-bar-container input {
+    width:100%;
+    padding:10px 70px 10px 10px; /* space for cross + search icon */
+    font-size:16px;
+    border:1px solid #ccc;
+    border-radius:4px;
+  }
+
+  .search-bar-container .search-btn {
+    position:absolute;
+    right:30px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    font-size:18px;
+    color:#c55f0c;
+  }
+
+  .search-bar-container .clear-btn {
+    position:absolute;
+    right:60px; /* left of search icon */
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    font-size:18px;
+    color:#999;
+    display:none;
+  }
+
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<!--NAV START-->
+<nav class="navbar">
+  <!-- Mobile Navbar -->
+  <div class="navbar-mobile">
+    <i class="fas fa-bars hamburger"></i>
+    <div class="logo">
+      <a href="/"><img src="logoDR.png" alt="Logo"></a>
+    </div>
+    <div class="right-items">
+      <!--<i class="fas fa-search search-icon"></i>-->
+      <a href="rooms.html"><button class="book-btn">Book Now</button></a>
+    </div>
+  </div>
+
+  <!-- Desktop / Tablet Menu -->
+  <ul class="menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="rooms.html">Rooms</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact-us.html">Contact Us</a></li>
+    <!--<li><i class="fas fa-search search-icon"></i></li>-->
+    <li><button class="book-btn">Book Now</button></li>
+  </ul>
+</nav>
+
+<!-- Search Bar -->
+<div class="search-bar-container">
+  <input type="text" id="searchInput" placeholder="Search...">
+  <i class="fas fa-times clear-btn"></i>
+  <i class="fas fa-search search-btn"></i>
+</div>
+
+<ul class="mobile-menu">
+  <li><a href="/">Home</a></li>
+  <li><a href="rooms.html">Rooms</a></li>
+  <li><a href="gallery.html">Gallery</a></li>
+  <li><a href="about.html">About Us</a></li>
+  <li><a href="contact-us.html">Contact us</a></li>
+</ul>
+
+<div class="overlay"></div>
+<!--NAV END-->
+  <div class="contact-container">
+    <h1 style="text-decoration: underline;">Contact Us</h1>
+    <p class="intro">We’d love to hear from you! Reach out via email, phone, or WhatsApp, and our team will get back to you as soon as possible.</p>
+
+    <div class="contact-info">
+      <div class="info-box email">
+        <i class="fas fa-envelope"></i>
+        <h3>Email Us</h3>
+        <p><a href="mailto:info.dreamriver@gmail.com">info.dreamriver@gmail.com</a></p>
+      </div>
+      <div class="info-box phone">
+        <i class="fas fa-phone"></i>
+        <h3>Call Us</h3>
+        <p style="color:#c55f0c;">+91 9797003920</p>
+        <p style="color:#c55f0c;">+91 7051657977</p>
+      </div>
+      <div class="info-box whatsapp">
+        <i class="fab fa-whatsapp"></i>
+        <h3>WhatsApp</h3>
+        <p><a href="https://wa.me/919797003920" target="_blank">Chat with us</a></p>
+        <p><a href="https://wa.me/917051657977" target="_blank">Chat with us</a></p>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      <p>Our team is available Monday to Saturday, 9 AM – 6 PM IST. We strive to respond to all queries within 24 hours.</p>
+    </div>
+  </div>
+
+<!--FOOTER-->
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <!-- Quick Links Section (now first) -->
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="rooms.html">Rooms</a></li>
+        <li><a href="about.html">About us</a></li>
+      </ul>
+    </div>
+
+    <!-- Rooms Section -->
+    <div class="footer-section">
+      <h3>Rooms</h3>
+      <ul>
+        <li><a href="rooms.html">Deluxe Haven Room</a></li>
+        <li><a href="rooms.html">Dream River Signature Suite</a></li>
+        <li><a href="rooms.html">Classic Comfort Room</a></li>
+        <li><a href="rooms.html">Starlight Suite Room</a></li>
+        <li><a href="rooms.html">Valley Serenity Room</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Us Section -->
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <p class="ehed">Email: <a href="mailto:info.dreamriver@gmail.com">info.dreamriver@gmail.com</a></p>
+      <p class="ehed">Mobile: <a href="tel:+919797003920">+91 9797003920</a></p>
+      <p class="ehed">Mobile: <a href="tel:+917051657977">+91 7051657977</a></p>
+    </div>
+
+    <!-- Services Section -->
+    <div class="footer-section">
+      <h3>Amenities</h3>
+      <ul class="amtti">
+        <li>CCTV Surveillance</li>
+        <li>Bonfire (Paid)</li>
+        <li>Dining Area</li>
+        <li>Doctor on Call</li>
+        <li>Free Car Parking</li>
+        <li>Luggage Assistance</li>
+        <li>Power Backup</li>
+        <li>Free Wi-Fi</li>
+        <li>Television</li>
+      </ul>
+    </div>
+
+    <!-- Explore Section -->
+    <div class="footer-section">
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!--COPYRIGHT SECTION-->
+
+<!-- Footer Bottom Section -->
+<div class="footer-bottom">
+  <p>
+    Copyright © 2025 Dream River. All Rights Reserved<br>
+    Designed & Developed by 
+    <a href="https://www.uperbit.com/" class="uperbit"><span class="uper">Uper</span><span class="bit">Bit</span></a>
+  </p>
+</div>
+<script src="hero.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>

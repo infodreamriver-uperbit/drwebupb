@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navbar with Search</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: Arial, sans-serif; }
+
+  /* Navbar */
+  .navbar {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:white;
+    padding:0 20px;
+    height:60px;
+    border-bottom:1px solid #ddd;
+    position:relative;
+    z-index:10;
+  }
+
+.logo img { height:50px; }
+
+@media (max-width:768px) {
+  .logo img { margin-left: -40px; }
+}
+
+  .menu { display:flex; gap:20px; list-style:none; align-items:center; }
+  .menu li a { text-decoration:none; color:black; font-weight:500; }
+
+  .book-btn {
+    background-color:#690213;
+    color:white;
+    padding:8px 16px;
+    border:none;
+    cursor:pointer;
+    font-weight:600;
+    border-radius:4px;
+  }
+
+  .search-icon { font-size:18px; }
+  .hamburger { display:none; font-size:24px;}
+  .right-items { display:none; align-items:center; gap:10px; }
+
+  /* Mobile Menu sliding from top */
+  .mobile-menu {
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    position:absolute;
+    top:-100%; /* start above view */
+    left:0;
+    width:100%;
+    background:white;
+    padding:10px 0;
+    gap:15px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    transition: top 0.3s ease;
+    z-index:9;
+  }
+
+  .mobile-menu li a {
+    color:black;
+    font-size:18px;
+    text-decoration:none;
+    padding-left:20px;
+  }
+
+  .overlay {
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.3);
+    z-index:8;
+  }
+
+  @media (max-width:768px) {
+    .menu { display:none; }
+    .navbar { justify-content:space-between; padding:0 15px; }
+    .navbar-mobile { display:flex; width:100%; justify-content:space-between; align-items:center; }
+    .hamburger { display:block; }
+    .right-items { display:flex; }
+    .logo { position:absolute; left:50%; transform:translateX(-50%); }
+  }
+
+  /* Search bar below navbar */
+  .search-bar-container {
+    position:relative;
+    width:100%;
+    display:none;
+    background:#f9f9f9;
+    border-bottom:1px solid #ddd;
+    padding:10px 20px;
+    z-index:5;
+  }
+
+  .search-bar-container input {
+    width:100%;
+    padding:10px 70px 10px 10px; /* space for cross + search icon */
+    font-size:16px;
+    border:1px solid #ccc;
+    border-radius:4px;
+  }
+
+  .search-bar-container .search-btn {
+    position:absolute;
+    right:30px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    font-size:18px;
+    color:#690213;
+  }
+
+  .search-bar-container .clear-btn {
+    position:absolute;
+    right:60px; /* left of search icon */
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    font-size:18px;
+    color:#999;
+    display:none;
+  }
+
+
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <!-- Mobile Navbar -->
+  <div class="navbar-mobile">
+    <i class="fas fa-bars hamburger"></i>
+    <div class="logo">
+      <img src="logoDR.png" alt="Logo">
+    </div>
+    <div class="right-items">
+      <i class="fas fa-search search-icon"></i>
+      <button class="book-btn">Book Now</button>
+    </div>
+  </div>
+
+  <!-- Desktop / Tablet Menu -->
+  <ul class="menu">
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Gallery</a></li>
+    <li><a href="#">Privacy</a></li>
+    <li><a href="#">Terms</a></li>
+    <li><i class="fas fa-search search-icon"></i></li>
+    <li><button class="book-btn">Book Now</button></li>
+  </ul>
+</nav>
+
+<!-- Search Bar -->
+<div class="search-bar-container">
+  <input type="text" id="searchInput" placeholder="Search...">
+  <i class="fas fa-times clear-btn"></i>
+  <i class="fas fa-search search-btn"></i>
+</div>
+
+<ul class="mobile-menu">
+  <li><a href="#">About Us</a></li>
+  <li><a href="#">Gallery</a></li>
+  <li><a href="#">Privacy</a></li>
+  <li><a href="#">Terms</a></li>
+</ul>
+
+<div class="overlay"></div>
+
+<script>
+  // Hamburger toggle for mobile menu
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  const overlay = document.querySelector('.overlay');
+
+  hamburger.addEventListener('click', () => {
+    if(mobileMenu.style.top === '60px') {
+      mobileMenu.style.top = '-100%';
+      overlay.style.display = 'none';
+      hamburger.classList.remove('fa-times');
+      hamburger.classList.add('fa-bars');
+    } else {
+      mobileMenu.style.top = '60px'; // below navbar
+      overlay.style.display = 'block';
+      hamburger.classList.remove('fa-bars');
+      hamburger.classList.add('fa-times');
+    }
+  });
+
+  overlay.addEventListener('click', () => {
+    mobileMenu.style.top = '-100%';
+    overlay.style.display = 'none';
+    hamburger.classList.remove('fa-times');
+    hamburger.classList.add('fa-bars');
+  });
+
+  // Search bar functionality
+  const searchIcons = document.querySelectorAll('.search-icon');
+  const searchBar = document.querySelector('.search-bar-container');
+  const searchInput = document.getElementById('searchInput');
+  const clearBtn = document.querySelector('.clear-btn');
+  const searchBtn = document.querySelector('.search-btn');
+
+  searchIcons.forEach(icon => {
+    icon.addEventListener('click', () => {
+      searchBar.style.display = searchBar.style.display === 'block' ? 'none' : 'block';
+      searchInput.focus();
+    });
+  });
+
+  searchInput.addEventListener('input', () => {
+    clearBtn.style.display = searchInput.value ? 'block' : 'none';
+  });
+
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    clearBtn.style.display = 'none';
+    searchInput.focus();
+  });
+
+  searchBtn.addEventListener('click', () => {
+    const query = searchInput.value.trim();
+    if(query) {
+      alert('Searching for: ' + query); // Replace with real search
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if(!searchBar.contains(e.target) && ![...searchIcons].some(icon => icon.contains(e.target))) {
+      searchBar.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
+
