@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rooms-Dream River Hotel</title>
+<meta name="description" content="Dream River is a hotel situated in the heart of Pahalgam. Our property offers guests a peaceful retreat where nature and comfort come together seamlessly.">
+<meta name="keywords" content="Dream River, hotel, Pahalgam, comfort, nature, retreat, accommodation, booking">
+<meta name="author" content="Dream River Team">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.dreamriver.in/">
+<link rel="icon" href="/LogoDR.png">
+<link rel="apple-touch-icon" href="/LogoDR.png">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dream River Hotel - Book Your Stay Online">
+<meta property="og:description" content="Dream River is a hotel situated in the heart of Pahalgam, offering a peaceful retreat where nature and comfort come together.">
+<meta property="og:url" content="https://www.dreamriver.in/">
+<meta property="og:image" content="https://www.dreamriver.in/LogoDR.png">
+<meta property="og:site_name" content="Dream River Hotel">
+<meta property="og:locale" content="en_IN">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dream River Hotel - Book Your Stay Online">
+<meta name="twitter:description" content="Dream River is a hotel situated in the heart of Pahalgam, offering a peaceful retreat where nature and comfort come together.">
+<meta name="twitter:image" content="https://www.dreamriver.in/LogoDR.png">
+<meta name="twitter:site" content="@DreamRiverHotel">
+<meta name="twitter:creator" content="@DreamRiverHotel">
+
+<!-- Additional SEO meta tags -->
+<meta http-equiv="content-language" content="en">
+
+<!-- Hotel Structured Data -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link rel="stylesheet" href="nav.css">
+<link rel="stylesheet" href="hero.css">
+<style>
+  body { font-family: Arial, sans-serif; margin:0; padding:0; background-color: #deebf0; }
+  
+  /* Hero Section */
+  .hero {
+    background: url('/Room\ no\ 02\ \(3\).jpg') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 120px 20px;
+  }
+  .hero h1 { font-size:3rem; margin-bottom:20px; }
+  .hero p { font-size:1.2rem; }
+
+  /* Section Titles */
+  .section-title {
+    text-align:center;
+    font-size:2rem;
+    margin:40px 0 20px;
+    color:#c55f0c;
+  }
+
+  /* Room Cards */
+  .hotel-list {
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    padding:20px;
+    justify-content:center;
+  }
+  .hotel-card {
+    background-color: #ffffff;
+    border:1px solid #ccc;
+    border-radius:8px;
+    overflow:hidden;
+    width:400px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+  }
+@media screen and (min-width: 601px)  {
+  .hotel-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 10;
+  }
+
+  .hotel-card {
+    /* Calculate width for 5 cards per row: (100% - total gaps) / 5 */
+    width: calc((100% - 5 * 20px) / 5);
+    box-sizing: border-box; /* Ensure padding/border included in width */
+  }
+  
+}
+
+  .hotel-card img { width:100%; height:200px; object-fit:cover; }
+  .hotel-card h3 { margin:10px; }
+  .hotel-card p { margin:0 10px 10px; }
+  .book-btn {
+    margin:10px;
+    padding:10px 15px;
+    background-color: #690213;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    width:calc(100% - 20px);
+  }
+
+  /* Responsive Hero Text */
+  @media(max-width:768px){
+    .hero h1 { font-size:2rem; }
+    .hero p { font-size:1rem; }
+  }
+
+  /* Popup Booking */
+  .popup {
+    display:none;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+    overflow-y: auto;
+    padding: 0px;
+  }
+  .popup-content {
+    background:#deebf0;
+    padding: 20px 20px 40px 20px;
+    border-radius:8px;
+    width:100%;
+    max-width:400px;
+    max-height:90vh;
+    overflow-y:auto;
+    position: relative;
+    box-sizing: border-box;
+  }
+  .popup-content h3 { margin-top:0; text-align:center; }
+  .close-btn {
+    position: sticky;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 1001;
+  }
+  .popup-content label { display:block; margin-top:10px; font-weight:bold; color:#333; }
+  .popup-content input, .popup-content textarea, .popup-content select { width:100%; padding:8px; margin-top:5px; box-sizing:border-box; border:1px solid #ccc; border-radius:4px; }
+  .popup-content input.invalid, .popup-content textarea.invalid, .popup-content select.invalid { border-color:red; }
+
+  /* Navbar */
+  .navbar {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#deebf0;
+    padding:0 20px;
+    height:60px;
+    /*border-bottom:1px solid #ddd;*/
+    position:relative;
+    z-index:10;
+  } 
+
+.logo img { height:50px; }
+
+@media (max-width:768px) {
+  .logo img { margin-left: -50px; }
+}
+@media (min-width:768px) {
+  .logo img { padding-left: 40px;}
+}
+
+
+  .menu { display:flex; gap:20px; list-style:none; align-items:center;  }
+  .menu li a { text-decoration:none; color:#c55f0c; font-weight:500; font-weight: bold; padding-right: 40px;}
+
+  .book-btn {
+    background-color:#c55f0c;
+    color:white;
+    padding:8px 16px;
+    border:none;
+    cursor:pointer;
+    font-weight:600;
+    border-radius:4px;
+    
+  }
+  @media (min-width:768px) {
+  .book-btn { margin-right: 40px;}
+}
+
+  .search-icon { font-size:18px; }
+  .hamburger { display:none; font-size:24px; color: #c55f0c}
+  .right-items { display:none; align-items:center; gap:10px; }
+
+  /* Mobile Menu sliding from top */
+  .mobile-menu {
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    position:absolute;
+    top:-100%; /* start above view */
+    left:0;
+    width:100%;
+    background:#deebf0;
+    padding:10px 0;
+    gap:15px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    transition: top 0.3s ease;
+    z-index:9;
+    padding-top: 30px;
+    padding-bottom: 40px;
+  }
+
+  .mobile-menu li a {
+    color:#c55f0c;
+    font-size:18px;
+    text-decoration:none;
+    padding-left:20px;
+    font-weight: bold;
+  }
+
+  .overlay {
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.3);
+    z-index:8;
+  }
+
+  @media (max-width:768px) {
+    .menu { display:none; }
+    .navbar { justify-content:space-between; padding:0 15px; }
+    .navbar-mobile { display:flex; width:100%; justify-content:space-between; align-items:center; }
+    .hamburger { display:block; }
+    .right-items { display:flex; }
+    .logo { position:absolute; left:50%; transform:translateX(-50%); }
+  }
+
+  /* Search bar below navbar */
+  .search-bar-container {
+    position:relative;
+    width:100%;
+    display:none;
+    background:#deebf0;
+    border-bottom:1px solid #ddd;
+    padding:10px 20px;
+    z-index:5;
+  }
+
+  .search-bar-container input {
+    width:100%;
+    padding:10px 70px 10px 10px; /* space for cross + search icon */
+    font-size:16px;
+    border:1px solid #ccc;
+    border-radius:4px;
+  }
+
+  .search-bar-container .search-btn {
+    position:absolute;
+    right:30px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    font-size:18px;
+    color:#c55f0c;
+  }
+
+  .search-bar-container .clear-btn {
+    position:absolute;
+    right:60px; /* left of search icon */
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    font-size:18px;
+    color:#999;
+    display:none;
+  }
+
+  /*ROOM SLIDER*/
+.rcslider {
+  position: relative;
+  width: 100%;
+  height: 400px; /* adjust as needed */
+  overflow: hidden;
+}
+.rcslider img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.rcslider img.active {
+  opacity: 1;
+}
+
+</style>
+</head>
+<body>
+<!--nav start-->
+
+<nav class="navbar">
+  <!-- Mobile Navbar -->
+  <div class="navbar-mobile">
+    <i class="fas fa-bars hamburger"></i>
+    <div class="logo">
+      <a href="/"><img src="logoDR.png" alt="Logo"></a>
+    </div>
+    <div class="right-items">
+      <!--<i class="fas fa-search search-icon"></i>-->
+      <a href="rooms.html"><button class="book-btn">Book Now</button></a>
+    </div>
+  </div>
+
+  <!-- Desktop / Tablet Menu -->
+  <ul class="menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="rooms.html">Rooms</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact-us.html">Contact Us</a></li>
+    <!--<li><i class="fas fa-search search-icon"></i></li>-->
+    <li><button class="book-btn">Book Now</button></li>
+  </ul>
+</nav>
+
+<!-- Search Bar -->
+<div class="search-bar-container">
+  <input type="text" id="searchInput" placeholder="Search...">
+  <i class="fas fa-times clear-btn"></i>
+  <i class="fas fa-search search-btn"></i>
+</div>
+
+<ul class="mobile-menu">
+  <li><a href="/">Home</a></li>
+  <li><a href="rooms.html">Rooms</a></li>
+  <li><a href="gallery.html">Gallery</a></li>
+  <li><a href="about.html">About Us</a></li>
+  <li><a href="contact-us.html">Contact us</a></li>
+</ul>
+
+<div class="overlay"></div>
+
+<!--nav end-->
+<section class="hero">
+  <h1>Book Your Perfect Room</h1>
+  <p style="font-weight:bold; color:#000000;">Choose your room and reserve instantly!</p>
+</section>
+
+<div class="section-title">Available Rooms</div>
+<div class="hotel-list">
+  <div class="hotel-card" data-room="Deluxe Haven Room">
+     <div class="rcslider">
+  <img src="Room 1 p1.jpeg" alt="Deluxe Room" class="active">
+  <img src="Room no 1 (2).jpg" alt="Deluxe Room">
+</div>
+    <h1 style="padding-left:10px; padding-top: 20px; padding-bottom: 20px; color:#c55f0c;">Deluxe Haven Room</h1>
+                <h5 class="bedclass" style="padding-left:10px;">-Single Bed: <span style="color:#000000;">₹2,000 / night / Per Person</span></h5>
+                <h5 class="bedclass" style="padding-left:10px;">-Double Bed:<span style="color:#000000;">₹2,200 / night / Per Person</span></h5>
+                <h5 class="bedclass" style="padding-left:10px;">-Triple Bed: <span style="color:#000000;">₹2,500 / night / Per Person</span></h5> <br>
+                <p>Comfort | Luxury Amenities | Scenic views.</p>
+                <span class="price" style="padding-left:10px;">₹2,000 / night / Per Person  (Single bed)</span>
+    <button class="book-btn">Book Now</button>
+  </div>
+  <div class="hotel-card" data-room="Dream River Signature Suite">
+     <div class="rcslider">
+  <img src="Room no 02 (2).jpg" alt="Deluxe Room" class="active">
+  <img src="Room no 02 (3).jpg" alt="Deluxe Room">
+</div>
+    <h1 style="padding-left:10px; padding-top: 20px; padding-bottom: 20px; color:#c55f0c;">Dream River Signature Suite</h1>
+                <h5 class="bedclass" style="padding-left:10px;">-Single Bed: <span style="color:#000000;">₹2,000 / night / Per Person</span></h5>
+                <h5 class="bedclass" style="padding-left:10px;">-Double Bed:<span style="color:#000000;">₹2,200 / night / Per Person</span></h5>
+                <h5 class="bedclass" style="padding-left:10px;">-Triple Bed: <span style="color:#000000;">₹2,500 / night / Per Person</span></h5> <br>
+                <p>Comfort | Luxury Amenities | Scenic views.</p>
+                <span class="price" style="padding-left:10px;">₹2,000 / night / Per Person  (Single bed)</span>
+    <button class="book-btn">Book Now</button>
+  </div>
+  <div class="hotel-card" data-room="Classic Comfort Room">
+     <div class="rcslider">
+  <img src="Room No 03 2.JPG" alt="Deluxe Room" class="active">
+  <img src="Room no 3.JPG" alt="Deluxe Room">
+</div>
+    <h1 style="padding-left:10px; padding-top: 20px; padding-bottom: 20px; color:#c55f0c;">Classic Comfort Room</h1>
+                <h5 class="bedclass" style="padding-left:10px;">-Single Bed: <span style="color:#000000;">₹2,000 / night / Per Person</span></h5>
+                <h5 class="bedclass" style="padding-left:10px;">-Double Bed:<span style="color:#000000;">₹2,200 / night / Per Person</span></h5>
+                <h5 class="bedclass" style="padding-left:10px;">-Triple Bed: <span style="color:#000000;">₹2,500 / night / Per Person</span></h5> <br>
+                <p>Comfort | Luxury Amenities | Scenic views.</p>
+                <span class="price" style="padding-left:10px;">₹2,000 / night / Per Person  (Single bed)</span>
+    <button class="book-btn">Book Now</button>
+  </div>
+  <div class="hotel-card" data-room="Starlight Suite Room">
+     <div class="rcslider">
+  <img src="Room no 04 (1).jpg" alt="Deluxe Room" class="active">
+  <img src="Room no 04 (2).JPG" alt="Deluxe Room">
+</div>
+    <h1 style="padding-left:10px; padding-top: 20px; padding-bottom: 20px; color:#c55f0c;">Starlight Suite Room</h1>
+                <h5 class="bedclass" style="padding-left:10px;">-Single Bed: <span style="color:#000000;">₹2,000 / night / Per Person</span></h5>
+                <h5 class="bedclass" style="padding-left:10px;">-Double Bed:<span style="color:#000000;">₹2,200 / night / Per Person</span></h5>
+                <h5 class="bedclass" style="padding-left:10px;">-Triple Bed: <span style="color:#000000;">₹2,500 / night / Per Person</span></h5> <br>
+                <p>Comfort | Luxury Amenities | Scenic views.</p>
+                <span class="price" style="padding-left:10px;">₹2,000 / night / Per Person  (Single bed)</span>
+    <button class="book-btn">Book Now</button>
+  </div>
+  <div class="hotel-card" data-room="Valley Serenity Room">
+     <div class="rcslider">
+  <img src="Room No 05.jpg" alt="Deluxe Room" class="active">
+  <img src="Room no 005.jpg" alt="Deluxe Room">
+</div>
+    <h1 style="padding-left:10px; padding-top: 20px; padding-bottom: 20px; color:#c55f0c;">Valley Serenity Room</h1>
+                <h5 class="bedclass" style="padding-left:10px;">-Single Bed: <span style="color:#000000;">₹2,000 / night / Per Person</span></h5>
+                <h5 class="bedclass" style="padding-left:10px;">-Double Bed:<span style="color:#000000;">₹2,200 / night / Per Person</span></h5>
+                <h5 class="bedclass" style="padding-left:10px;">-Triple Bed: <span style="color:#000000;">₹2,500 / night / Per Person</span></h5> <br>
+                <p>Comfort | Luxury Amenities | Scenic views.</p>
+                <span class="price" style="padding-left:10px;">₹2,000 / night / Per Person  (Single bed)</span>
+    <button class="book-btn">Book Now</button>
+  </div>
+</div>
+
+<!-- Booking Popup -->
+<div class="popup" id="bookingPopup">
+  <div class="popup-content">
+    <span class="close-btn" id="closePopup">&times;</span>
+    <h3 id="popupRoomName">Book Your Room</h3>
+
+    <label for="userName">Name</label>
+    <input type="text" id="userName" placeholder="Your Name">
+
+    <label for="userEmail">Email</label>
+    <input type="email" id="userEmail" placeholder="Your Email">
+
+    <label for="userPhone">Phone</label>
+    <input type="tel" id="userPhone" placeholder="Your Phone">
+
+    <label for="checkIn">Check-in Date</label>
+    <input type="date" id="checkIn">
+
+    <label for="checkOut">Check-out Date</label>
+    <input type="date" id="checkOut">
+
+    <label for="roomType">Room Type</label>
+<select id="roomType">
+  <option value="">Select Room Type</option>
+  <option value="Single Bed">Single Bed</option>
+  <option value="Double Bed">Double Bed</option>
+  <option value="Triple Bed">Triple Bed</option>
+</select>
+
+
+    <label for="guests">Number of Guests</label>
+    <input type="number" id="guests" placeholder="Number of Guests" min="1">
+
+    <label for="requests">Special Requests</label>
+    <textarea id="requests" placeholder="Special Requests (optional)"></textarea>
+
+    <button class="book-btn" id="sendWhatsApp">Book Now</button>
+  </div>
+</div>
+
+
+<!--Amenities-->
+<!--Amenities-->
+<section class="amenities-section">
+  <h2>Amenities & Services</h2>
+  <div class="amenities-grid">
+    <div class="amenity-item">
+      <i class="fas fa-video"></i>
+      <h3>CCTV Surveillance</h3>
+      <p>24×7 security to ensure your safety.</p>
+    </div>
+    <div class="amenity-item">
+      <i class="fas fa-fire"></i>
+      <h3>Bonfire (Paid)</h3>
+      <p>Cozy evenings with a warm bonfire experience.</p>
+    </div>
+    <div class="amenity-item">
+      <i class="fas fa-utensils"></i>
+      <h3>Dining Area</h3>
+      <p>Comfortable dining area for all your meals.</p>
+    </div>
+    <div class="amenity-item">
+      <i class="fas fa-user-md"></i>
+      <h3>Doctor on Call</h3>
+      <p>Immediate medical assistance whenever required.</p>
+    </div>
+    <div class="amenity-item">
+      <i class="fas fa-car"></i>
+      <h3>Free Car Parking</h3>
+      <p>Safe and secure parking facilities available.</p>
+    </div>
+    <div class="amenity-item">
+      <i class="fas fa-suitcase-rolling"></i>
+      <h3>Luggage Assistance</h3>
+      <p>We help you with your luggage for a hassle-free stay.</p>
+    </div>
+    <div class="amenity-item">
+      <i class="fas fa-battery-full"></i>
+      <h3>Power Backup</h3>
+      <p>Uninterrupted power supply during your stay.</p>
+    </div>
+    <div class="amenity-item">
+      <i class="fas fa-wifi"></i>
+      <h3>Free Wi-Fi</h3>
+      <p>High-speed internet access throughout the property.</p>
+    </div>
+    <div class="amenity-item">
+      <i class="fas fa-tv"></i>
+      <h3>Television</h3>
+      <p>Enjoy your favorite shows and movies anytime.</p>
+    </div>
+  </div>
+</section>
+
+<!--FAQ START-->
+<div class="section-title">Frequently Asked Questions</div>
+<div class="faq-section" style="width:100%; max-width:1000px; margin:0 auto; padding:20px;">
+
+  <div class="faq-item">
+    <button class="faq-question">1. What is the check-in and check-out time? <span class="faq-icon">+</span></button>
+    <div class="faq-answer">
+      <p>Check-in is from 2:00 PM onwards, and check-out is until 12:00 AM.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">2. Do you offer free Wi-Fi? <span class="faq-icon">+</span></button>
+    <div class="faq-answer">
+      <p>Yes! Complimentary high-speed Wi-Fi is available in all rooms and public areas throughout the property.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">3. Can I cancel or modify my booking? <span class="faq-icon">+</span></button>
+    <div class="faq-answer">
+      <p>Cancellations and modifications are allowed before 3 days of check-in.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">4. Are parking facilities available? <span class="faq-icon">+</span></button>
+    <div class="faq-answer">
+      <p>Yes, we provide free secure parking for all guests. No prior reservation is needed for standard vehicles.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">5. What payment methods are accepted? <span class="faq-icon">+</span></button>
+    <div class="faq-answer">
+      <p>We accept major UPI, Banking Transfer, and cash payments at the hotel.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">6. Are meals included in the room rate? <span class="faq-icon">+</span></button>
+    <div class="faq-answer">
+      <p>Meal plans aren't included in room rent. You need to pay seperately for Meal.</p>
+    </div>
+  </div>
+
+</div>
+<!--FAQ END-->
+
+<!--FOOTER-->
+
+<!--FOOTER-->
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <!-- Quick Links Section (now first) -->
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="rooms.html">Rooms</a></li>
+        <li><a href="about.html">About us</a></li>
+      </ul>
+    </div>
+
+    <!-- Rooms Section -->
+    <div class="footer-section">
+      <h3>Rooms</h3>
+      <ul>
+        <li><a href="rooms.html">Deluxe Haven Room</a></li>
+        <li><a href="rooms.html">Dream River Signature Suite</a></li>
+        <li><a href="rooms.html">Classic Comfort Room</a></li>
+        <li><a href="rooms.html">Starlight Suite Room</a></li>
+        <li><a href="rooms.html">Valley Serenity Room</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Us Section -->
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <p class="ehed">Email: <a href="mailto:info.dreamriver@gmail.com">info.dreamriver@gmail.com</a></p>
+      <p class="ehed">Mobile: <a href="tel:+919797003920">+91 9797003920</a></p>
+      <p class="ehed">Mobile: <a href="tel:+917051657977">+91 7051657977</a></p>
+    </div>
+
+    <!-- Services Section -->
+    <div class="footer-section">
+      <h3>Amenities</h3>
+      <ul class="amtti">
+        <li>CCTV Surveillance</li>
+        <li>Bonfire (Paid)</li>
+        <li>Dining Area</li>
+        <li>Doctor on Call</li>
+        <li>Free Car Parking</li>
+        <li>Luggage Assistance</li>
+        <li>Power Backup</li>
+        <li>Free Wi-Fi</li>
+        <li>Television</li>
+      </ul>
+    </div>
+
+    <!-- Explore Section -->
+    <div class="footer-section">
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!--COPYRIGHT SECTION-->
+
+<!-- Footer Bottom Section -->
+<div class="footer-bottom">
+  <p>
+    Copyright © 2025 Dream River. All Rights Reserved<br>
+    Designed & Developed by 
+    <a href="https://www.uperbit.com/" class="uperbit"><span class="uper">Uper</span><span class="bit">Bit</span></a>
+  </p>
+</div>
+
+
+<!--end of all footer section-->
+
+<script>
+const popup = document.getElementById('bookingPopup');
+const closeBtn = document.getElementById('closePopup');
+const sendBtn = document.getElementById('sendWhatsApp');
+const checkInField = document.getElementById('checkIn');
+const checkOutField = document.getElementById('checkOut');
+const popupRoomName = document.getElementById('popupRoomName');
+
+let selectedRoom = '';
+
+// Set date restrictions
+function setDateRestrictions() {
+  const today = new Date().toISOString().split('T')[0];
+  checkInField.min = today;
+  checkOutField.min = today;
+}
+setDateRestrictions();
+
+checkInField.addEventListener('change', () => {
+  const checkInDate = checkInField.value;
+  if (checkInDate) {
+    const nextDay = new Date(checkInDate);
+    nextDay.setDate(nextDay.getDate() + 1);
+    checkOutField.min = nextDay.toISOString().split('T')[0];
+    if (checkOutField.value && checkOutField.value <= checkInDate) {
+      checkOutField.value = '';
+    }
+  }
+});
+
+// Open popup and set room
+document.querySelectorAll('.hotel-card .book-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const card = btn.parentElement;
+    selectedRoom = card.dataset.room;
+    popupRoomName.textContent = `Booking: ${selectedRoom}`;
+    popup.style.display = 'flex';
+    document.querySelectorAll('.popup-content input, .popup-content textarea').forEach(field => field.classList.remove('invalid'));
+  });
+});
+
+// Close popup
+closeBtn.addEventListener('click', () => { popup.style.display = 'none'; });
+
+// Email validation
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+// Send WhatsApp
+sendBtn.addEventListener('click', () => {
+  const fields = [
+    { id: 'userName', validate: v => v.trim() !== '' },
+    { id: 'userEmail', validate: v => isValidEmail(v) },
+    { id: 'userPhone', validate: v => /^\d{10}$/.test(v.trim()) },
+    { id: 'checkIn', validate: v => v !== '' },
+    { id: 'checkOut', validate: v => v !== '' && v > checkInField.value },
+    { id: 'roomType', validate: v => v !== '' },
+    { id: 'guests', validate: v => v !== '' && parseInt(v) > 0 },
+    
+  ];
+
+  let valid = true;
+  fields.forEach(f => {
+    const el = document.getElementById(f.id);
+    if (!f.validate(el.value)) {
+      el.classList.add('invalid');
+      valid = false;
+    } else {
+      el.classList.remove('invalid');
+    }
+  });
+
+  if (!valid) return;
+
+  const name = document.getElementById('userName').value.trim();
+  const email = document.getElementById('userEmail').value.trim();
+  const phone = document.getElementById('userPhone').value.trim();
+  const checkIn = checkInField.value;
+  const checkOut = checkOutField.value;
+  const guests = document.getElementById('guests').value;
+  const roomType = document.getElementById('roomType').value || 'Not specified';
+  const requests = document.getElementById('requests').value.trim() || 'None';
+
+  const message = `*Booking Request*%0A*Room:* ${selectedRoom}%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Number of Guests:* ${guests}%0A*Check-in:* ${checkIn}%0A*Check-out:* ${checkOut} %0A*Room Type:* ${roomType}  %0A*Special Requests:* ${requests} `;
+
+  const whatsappNumber = '917051657977';
+  const url = `https://wa.me/${whatsappNumber}?text=${message}`;
+  window.open(url, '_blank');
+  popup.style.display = 'none';
+});
+</script>
+
+<!--SLIDER ANIMATION FOR ROOMS-->>
+
+<script>
+document.querySelectorAll('.rcslider').forEach(slider => {
+  const slides = slider.querySelectorAll('img');
+  let index = 0;
+
+  setInterval(() => {
+    slides[index].classList.remove('active');
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+  }, 2500); // switch every 2 seconds
+});
+</script>
+
+<script src="nav.js"></script>
+<script src="hero.js"></script>
+</body>
+</html>
