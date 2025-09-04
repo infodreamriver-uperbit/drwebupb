@@ -445,6 +445,10 @@
 
     <label for="userPhone">Phone</label>
     <input type="tel" id="userPhone" placeholder="Your Phone">
+<!--AADHAAR CARD POPUP-->
+    <label for="aadhaarNumber">Aadhaar Number</label>
+    <input type="text" id="aadhaarNumber" maxlength="12" placeholder="Enter 12-digit Aadhaar Number">
+
 
     <label for="checkIn">Check-in Date</label>
     <input type="date" id="checkIn">
@@ -699,12 +703,20 @@ function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+//AADHAR
+  document.getElementById('aadhaarNumber').addEventListener('input', function(e) {
+  this.value = this.value.replace(/\D/g, '').slice(0, 12); 
+});
+
+
+  
 // Send WhatsApp
 sendBtn.addEventListener('click', () => {
   const fields = [
     { id: 'userName', validate: v => v.trim() !== '' },
     { id: 'userEmail', validate: v => isValidEmail(v) },
     { id: 'userPhone', validate: v => /^\d{10}$/.test(v.trim()) },
+    { id: 'aadhaarNumber', validate: v => /^\d{12}$/.test(v.trim())   // must be exactly 12 digits }
     { id: 'checkIn', validate: v => v !== '' },
     { id: 'checkOut', validate: v => v !== '' && v > checkInField.value },
     { id: 'roomType', validate: v => v !== '' },
@@ -728,13 +740,14 @@ sendBtn.addEventListener('click', () => {
   const name = document.getElementById('userName').value.trim();
   const email = document.getElementById('userEmail').value.trim();
   const phone = document.getElementById('userPhone').value.trim();
+  const aadhaar = document.getElementById('aadhaarNumber').value;
   const checkIn = checkInField.value;
   const checkOut = checkOutField.value;
   const guests = document.getElementById('guests').value;
   const roomType = document.getElementById('roomType').value || 'Not specified';
   const requests = document.getElementById('requests').value.trim() || 'None';
 
-  const message = `*Booking Request*%0A*Room:* ${selectedRoom}%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Number of Guests:* ${guests}%0A*Check-in:* ${checkIn}%0A*Check-out:* ${checkOut} %0A*Room Type:* ${roomType}  %0A*Special Requests:* ${requests} `;
+  const message = `*Booking Request*%0A*Room:* ${selectedRoom}%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Aadhaar:* ${aadhaar}%0A*Number of Guests:* ${guests}%0A*Check-in:* ${checkIn}%0A*Check-out:* ${checkOut} %0A*Room Type:* ${roomType}  %0A*Special Requests:* ${requests} `;
 
   const whatsappNumber = '917051657977';
   const url = `https://wa.me/${whatsappNumber}?text=${message}`;
@@ -762,6 +775,7 @@ document.querySelectorAll('.rcslider').forEach(slider => {
 <script src="hero.js"></script>
 </body>
 </html>
+
 
 
 
