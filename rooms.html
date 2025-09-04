@@ -716,7 +716,7 @@ sendBtn.addEventListener('click', () => {
     { id: 'userName', validate: v => v.trim() !== '' },
     { id: 'userEmail', validate: v => isValidEmail(v) },
     { id: 'userPhone', validate: v => /^\d{10}$/.test(v.trim()) },
-    { id: 'aadhaarNumber', validate: v => /^\d{12}$/.test(v.trim())   // must be exactly 12 digits }
+    { id: 'aadhaarNumber', validate: v => /^\d{12}$/.test(v.trim()) },
     { id: 'checkIn', validate: v => v !== '' },
     { id: 'checkOut', validate: v => v !== '' && v > checkInField.value },
     { id: 'roomType', validate: v => v !== '' },
@@ -775,6 +775,7 @@ document.querySelectorAll('.rcslider').forEach(slider => {
 <script src="hero.js"></script>
 </body>
 </html>
+
 
 
 
